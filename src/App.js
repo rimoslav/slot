@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { makeMatrix, checkForWin } from "./helpers";
-
+import energy from "./energy.png";
 const sounds = {
 	start: "https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/start_2.mp4?alt=media&token=e9916579-c5a5-4898-8e2d-3e8688dea509",
 	coin: "https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/coin.mp4?alt=media&token=e07d48bd-cb07-41a8-a649-2deb01e86290",
@@ -170,16 +170,18 @@ class App extends Component {
 					<div className="spinner" style={{ backgroundPosition: "17px 0px" }}></div>
 				</div>
 				<div className="row handlers">
-					<div className="row betting">
-						<label className="cash-label bet-label">BET</label>
-						<label className="cash bet-value">{bet}</label>
-						<div className="quantity">
-							<button className="button bet" onClick={this.increaseBet} disabled={disabled}>
-								+
-							</button>
-							<button className="button bet" onClick={this.decreaseBet} disabled={disabled}>
-								-
-							</button>
+					<div className="column">
+						<div className="row betting">
+							<label className="cash-label bet-label">BET</label>
+							<label className="cash bet-value">{bet}</label>
+							<div className="quantity">
+								<button className="button bet" onClick={this.increaseBet} disabled={disabled}>
+									+
+								</button>
+								<button className="button bet" onClick={this.decreaseBet} disabled={disabled}>
+									-
+								</button>
+							</div>
 						</div>
 					</div>
 					<div>
@@ -196,6 +198,7 @@ class App extends Component {
 						MAX BET
 					</button>
 					<button className="button button-spin" onClick={this.spin} disabled={disabled}>
+						<img src={energy} className="energy" />
 						SPIN
 					</button>
 				</div>

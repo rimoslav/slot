@@ -11,8 +11,9 @@
 	transform: scale(0.52, 0.52) translateY(-30%);
 	overflow: hidden;
 	transition: 0.3s transform;
-	background: #333;
+	background: tan;
 	border: 3px solid #333;
+	border-radius: 30px;
 }
 .spinner {
 	background: #fff url("./slot.png") repeat-y;
@@ -23,7 +24,8 @@
 	transition: 2.06s background-position ease-in-out;
 	margin: 0px 2px;
 	padding: 0 17px;
-	/* transform: translateZ(0); */
+	border-radius: 30px;
+	border: 5px solid black;
 	background-position-x: 17px;
 	background-position-y: 0px;
 }
@@ -44,8 +46,14 @@
 }
 
 .handlers {
-	transform: translate(-19px, -240%);
-	width: 478px;
+	position: absolute;
+	top: 348px;
+	transform: translateX(-20px) scale(0.9);
+	width: 548px;
+	align-items: flex-start;
+	transition: 0.3s transform;
+	display: flex;
+	justify-content: space-between;
 	transition: 0.3s transform;
 }
 
@@ -124,17 +132,24 @@
 	margin-left: 2px;
 }
 
-.button.max-bet {
-	width: 122px;
+.button .energy {
+	width: 28px;
+	height: 30px;
+	transform: translate(-2px, 5px);
+}
+
+.max-bet {
 	font-size: 15px;
-	padding: 12px 12px;
-	background: rgb(255, 40, 0);
+	padding: 2px 8px;
+	width: 118px;
+	background: #333;
+	height: 32px;
 	color: #fff;
-	box-shadow: 0 2px 2px 0 rgb(255, 40, 0, 0.14), 0 3px 1px -2px rgb(255, 40, 0, 0.2), 0 1px 5px 0 rgb(255, 40, 0, 0.12);
+	box-shadow: 0 2px 2px 0 rgb(51, 51, 51, 0.14), 0 3px 1px -2px rgb(51, 51, 51, 0.2), 0 1px 5px 0 rgb(51, 51, 51, 0.12);
 }
 
 .button-spin {
-	width: 173px;
+	width: 278px;
 	height: 68px;
 	background: #64991e;
 	color: #fff;
@@ -153,7 +168,6 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	transform: translateY(10px);
 }
 
 .betting {
@@ -173,11 +187,13 @@
 }
 
 .buttons-row {
-	transform: translateY(-221%);
-	align-items: initial;
-	justify-content: space-between;
+	position: absolute;
+	top: 431px;
 	display: flex;
-	width: 441px;
+	flex-direction: row;
+	width: 460px;
+	align-items: flex-start;
+	justify-content: space-between;
 }
 
 @media screen and (max-width: 1000px) {
@@ -185,12 +201,15 @@
 		transform: scale(0.45, 0.45) translateY(-46%);
 	}
 	.handlers {
-		transform: translate(-19px, -316%) scale(0.9);
-		width: 457px;
+		top: 293px;
+		width: 482px;
 	}
 	.buttons-row {
-		transform: translateY(-326%);
-		width: 380px;
+		width: 400px;
+		top: 380px;
+	}
+	.button-spin {
+		width: 244px;
 	}
 }
 
@@ -199,12 +218,21 @@
 		transform: scale(0.4, 0.4) translateY(-59%);
 	}
 	.handlers {
-		transform: translate(-19px, -340%) scale(0.9);
-		width: 413px;
+		top: 266px;
+		width: 431px;
 	}
 	.buttons-row {
-		transform: translateY(-331%);
-		width: 339px;
+		top: 352px;
+		width: 356px;
+	}
+	.button-spin {
+		width: 227px;
+		height: 57px;
+		padding: 5px 30px;
+	}
+
+	.max-bet {
+		width: 115px;
 	}
 }
 
@@ -213,11 +241,17 @@
 		transform: scale(0.35, 0.35) translateY(-80%);
 	}
 	.handlers {
-		transform: translate(-34px, -386%) scale(0.81, 0.81);
-		width: 359px;
+		top: 231px;
+		width: 423px;
+		transform: translateX(-18px) scale(0.81, 0.81);
 	}
 	.buttons-row {
-		transform: translateY(-409%) scale(0.8);
-		width: 370px;
+		transform: scale(0.8);
+		width: 392px;
+		top: 307px;
+	}
+
+	.max-bet {
+		width: 130px;
 	}
 }
