@@ -1,5 +1,5 @@
 ## Set up the app
-___
+__
 
 #### Download the source code
 
