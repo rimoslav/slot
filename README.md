@@ -1,10 +1,9 @@
 ## Set up the app
-__
 
-#### Download the source code
+#### 1. Download the source code
 
-#### Inside the root folder run `npm i`
+#### 2. Inside the root folder run `npm i`
 
-#### After the installation completes run `npm start` to start the app
+#### 3. After the installation completes run `npm start` to start the app
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
