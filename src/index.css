@@ -134,17 +134,46 @@
 	height: 32px;
 	color: #fff;
 	box-shadow: 0 2px 2px 0 rgb(51, 51, 51, 0.14), 0 3px 1px -2px rgb(51, 51, 51, 0.2), 0 1px 5px 0 rgb(51, 51, 51, 0.12);
+	background: url("./img/max.png") no-repeat;
+	width: 128px;
+	height: 64px;
+	border-radius: 12px;
 }
 
 .button-spin {
-	width: 278px;
-	height: 52px;
 	padding: 5px 30px;
 	background: #64991e;
 	color: #fff;
 	box-shadow: 0 2px 2px 0 rgb(93, 187, 99, 0.14), 0 3px 1px -2px rgb(93, 187, 99, 0.2), 0 1px 5px 0 rgb(93, 187, 99, 0.12);
 	font-size: 22px;
-	transform: translateY(-18px);
+	transform: scale(1, 0.5);
+	position: relative;
+	top: -33px;
+	width: 128px;
+	height: 128px;
+	background: url("./img/spin.png") no-repeat;
+}
+
+.button.bet.plus {
+	background: url("./img/plus.png") no-repeat;
+	width: 128px;
+	height: 64px;
+	transform: scale(0.4, 0.45);
+	border-radius: 15px;
+	position: relative;
+	top: 18px;
+	left: 17px;
+}
+
+.button.bet.minus {
+	background: url("./img/minus.png") no-repeat;
+	width: 128px;
+	height: 64px;
+	transform: scale(0.4, 0.45);
+	border-radius: 15px;
+	position: relative;
+	top: -19px;
+	left: 17px;
 }
 
 .row {
@@ -158,6 +187,8 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+	top: -30px;
 }
 
 .handlers {
@@ -170,10 +201,6 @@
 	display: flex;
 	justify-content: space-between;
 	transition: 0.3s transform;
-}
-
-.betting {
-	transform: translateY(9px);
 }
 
 .bet-value {
@@ -200,7 +227,14 @@
 
 .win-amount,
 .cash-amount {
-	padding: 7px 5px;
+	padding: 12px 5px;
+}
+
+.win-info {
+	width: 173px;
+	position: relative;
+	top: 0px;
+	opacity: 0;
 }
 
 @media screen and (max-width: 1000px) {
@@ -263,4 +297,83 @@
 	.max-bet {
 		width: 130px;
 	}
+}
+
+/* Firefox old*/
+@-moz-keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/* IE */
+@-ms-keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/* Opera and prob css3 final iteration */
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.win-info-blinker {
+	-moz-animation: blink normal 1.5s infinite ease-in-out; /* Firefox */
+	-webkit-animation: blink normal 1.5s infinite ease-in-out; /* Webkit */
+	-ms-animation: blink normal 1.5s infinite ease-in-out; /* IE */
+	animation: blink normal 1.5s infinite ease-in-out; /* Opera and prob css3 final iteration */
 }

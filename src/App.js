@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { makeMatrix, checkForWin } from "./helpers";
-import energy from "./energy.png";
+import win_image from "./img/win.png";
+
 const sounds = {
 	start: "https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/start_2.mp4?alt=media&token=e9916579-c5a5-4898-8e2d-3e8688dea509",
 	coin: "https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/coin.mp4?alt=media&token=e07d48bd-cb07-41a8-a649-2deb01e86290",
@@ -152,6 +153,14 @@ class App extends Component {
 			const matrix = makeMatrix(positions);
 			// Check how much the user won if any, play different sounds for different amounts of win
 			const win = checkForWin(matrix, bet);
+			// If user won any amount blink the Win! image 3 times
+			if (win > 0) {
+				const happy = document.getElementsByClassName("win-info")[0];
+				happy.classList.add("win-info-blinker");
+				window.setTimeout(() => {
+					happy.classList.remove("win-info-blinker");
+				}, 2250);
+			}
 			if (win > 45) {
 				high_win.play();
 			} else if (win > 30) {
@@ -197,12 +206,8 @@ class App extends Component {
 							<label className="cash-label bet-label">BET</label>
 							<label className="cash bet-value">{bet}</label>
 							<div className="quantity">
-								<button className="button bet" onClick={this.increaseBet} disabled={disabled}>
-									+
-								</button>
-								<button className="button bet" onClick={this.decreaseBet} disabled={disabled}>
-									-
-								</button>
+								<button className="button bet plus" onClick={this.increaseBet} disabled={disabled}></button>
+								<button className="button bet minus" onClick={this.decreaseBet} disabled={disabled}></button>
 							</div>
 						</div>
 					</div>
@@ -216,13 +221,9 @@ class App extends Component {
 					</div>
 				</div>
 				<div className="row buttons-row">
-					<button className="button max-bet" onClick={this.setMaxBet} disabled={disabled}>
-						MAX BET
-					</button>
-					<button className="button button-spin" onClick={this.spin} disabled={disabled}>
-						<img src={energy} className="energy" />
-						SPIN
-					</button>
+					<button className="button max-bet" onClick={this.setMaxBet} disabled={disabled}></button>
+					<img src={win_image} className="win-info" />
+					<button className="button button-spin" onClick={this.spin} disabled={disabled}></button>
 				</div>
 			</div>
 		);
