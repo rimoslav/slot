@@ -45,10 +45,13 @@ class App extends Component {
 	increaseBet = () => {
 		const { changingBet, bet, cash } = this.state;
 		if (!changingBet) {
+			// Play the sound on button press until bet reaches 1000
 			if (bet < 1000) {
 				this.state.coin.play();
 				this.setState({ changingBet: true });
 			}
+			// Increase bet up to 1000 or total credit if it's less than 1000
+			// Bet can be 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500 or 1000
 			if (bet === 5 && cash >= 10) {
 				this.setState({ bet: 10 });
 			} else if (bet < 100 && cash >= bet + 10) {
@@ -64,6 +67,7 @@ class App extends Component {
 	decreaseBet = () => {
 		const { changingBet, bet } = this.state;
 		if (!changingBet) {
+			// Play the sound on button press until bet reaches 5
 			if (bet > 5) {
 				this.state.coin.play();
 				this.setState({ changingBet: true });
@@ -87,20 +91,29 @@ class App extends Component {
 	};
 
 	spin = () => {
+		// Play start spinning sound
 		this.state.start_spin.play();
+		// Reset the win field value to 0 for the new spin
 		this.setState({ win: 0 });
+		// First spin reels up slightly
 		const spinners = this.spinUp();
+		// Then start spinning down by greater amount
 		this.spinDown(spinners);
 	};
 
 	spinUp = () => {
 		const { cash, bet } = this.state;
+		// Once spinning starts, disable the spin button till spin is completed
+		// Subtract betting value from the total cash amount
 		this.setState({ disabled: true, cash: cash - bet });
 		const spinners = document.querySelectorAll(".spinner");
+		// Generate random number dividable by line height, which is 180px
 		const ran_1 = (4 + Math.ceil(Math.random() * 5)) * 3 * 180;
 		spinners.forEach((spinner, index) => {
+			// Get curent background position by Y axis for all reels and subtract the random number of pixels generated above
 			const current = parseInt(spinner.style.backgroundPositionY.slice(0, -2));
 			spinner.style.backgroundPositionY = (current - ran_1).toString() + "px";
+			// Play stop spinning sound for each reel once the real stopped spinning
 			window.setTimeout(
 				() => {
 					this.state.stop_spin[index].play();
@@ -114,9 +127,11 @@ class App extends Component {
 	spinDown = (spinners) => {
 		spinners.forEach((spinner, index) => {
 			window.setTimeout(() => {
+				// Generate random number for each real dividable by line height and add it to current backgroundPositionY of that real
 				const ran_2 = (4 + Math.ceil(Math.random() * 12)) * 5 * 180;
 				const current = parseInt(spinner.style.backgroundPositionY.slice(0, -2));
 				spinner.style.backgroundPositionY = (current + ran_2).toString() + "px";
+				// If the spinning is completed get the result
 				if (index === 4) {
 					this.getResult(spinners);
 				}
@@ -128,10 +143,13 @@ class App extends Component {
 		const { bet, cash, small_win, medium_win, high_win } = this.state;
 		window.setTimeout(() => {
 			const positions = [];
+			// Generate reel positions % 2160 - background image height - which generates numbers: 0, 180, 360, 540, ..., 1980
 			spinners.forEach((spinner) => {
 				positions.push(parseInt(spinner.style.backgroundPositionY.slice(0, -2)) % 2160);
 			});
+			// Make an array of arrays representing symbols displayed on the screen
 			const matrix = makeMatrix(positions);
+			// Check how much the user won if any, play different sounds for different amounts of win
 			const win = checkForWin(matrix, bet);
 			if (win > 45) {
 				high_win.play();
@@ -140,7 +158,9 @@ class App extends Component {
 			} else if (win > 0) {
 				small_win.play();
 			}
+			// Disabled is set to false, spinning button works again. The amount won is added to cash total
 			this.setState({ disabled: false, win: win * bet, cash: cash + win * bet }, () => {
+				// If the previous bet is greater than cash left in the bank, reduce the bet to the highest possible value less or equal to current bank amount
 				if (bet > cash) {
 					if (cash > 500) {
 						this.setState({ bet: 500 });
@@ -152,6 +172,7 @@ class App extends Component {
 						this.setState({ bet: 5 });
 					}
 				}
+				// If there's no cash left, the game is over
 				if (cash === 0) {
 					this.setState({ disabled: true, bet: 0 });
 				}

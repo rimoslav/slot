@@ -210,6 +210,8 @@
 	}
 	.button-spin {
 		width: 244px;
+		height: 52px;
+		padding: 7px 30px;
 	}
 }
 
