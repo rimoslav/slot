@@ -45,18 +45,6 @@
 	transition: 2.08s background-position ease-in-out;
 }
 
-.handlers {
-	position: absolute;
-	top: 348px;
-	transform: translateX(-20px) scale(0.9);
-	width: 548px;
-	align-items: flex-start;
-	transition: 0.3s transform;
-	display: flex;
-	justify-content: space-between;
-	transition: 0.3s transform;
-}
-
 .cash {
 	font-size: 20px;
 	font-family: sans-serif;
@@ -150,11 +138,13 @@
 
 .button-spin {
 	width: 278px;
-	height: 68px;
+	height: 52px;
+	padding: 5px 30px;
 	background: #64991e;
 	color: #fff;
 	box-shadow: 0 2px 2px 0 rgb(93, 187, 99, 0.14), 0 3px 1px -2px rgb(93, 187, 99, 0.2), 0 1px 5px 0 rgb(93, 187, 99, 0.12);
 	font-size: 22px;
+	transform: translateY(-18px);
 }
 
 .row {
@@ -168,6 +158,18 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.handlers {
+	position: absolute;
+	top: 348px;
+	transform: translateX(-20px) scale(0.9);
+	width: 548px;
+	align-items: flex-start;
+	transition: 0.3s transform;
+	display: flex;
+	justify-content: space-between;
+	transition: 0.3s transform;
 }
 
 .betting {
@@ -194,6 +196,11 @@
 	width: 460px;
 	align-items: flex-start;
 	justify-content: space-between;
+}
+
+.win-amount,
+.cash-amount {
+	padding: 7px 5px;
 }
 
 @media screen and (max-width: 1000px) {

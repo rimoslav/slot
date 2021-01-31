@@ -35,6 +35,7 @@ class App extends Component {
 	}
 
 	componentDidMount = () => {
+		// When changing the bet, pause the possibility to change again until the sound finished playing.
 		this.state.coin.addEventListener("ended", () => this.setState({ changingBet: false }));
 	};
 
@@ -211,7 +212,7 @@ class App extends Component {
 					</div>
 					<div>
 						<label className="cash-label">CREDIT</label>
-						<label className="cash">{cash}</label>
+						<label className="cash cash-amount">{cash}</label>
 					</div>
 				</div>
 				<div className="row buttons-row">
