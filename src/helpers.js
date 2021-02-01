@@ -139,13 +139,16 @@ const allEqual = (matrix) => matrix.every((v) => v === matrix[0]);
  *
  * @param {Array} matrix - Payline elements.
  * @param {Integer} payline_index - Payline index used only for dev purposes and result previewing in console log.
- * @param {Integer} bet - Users current bet value - also used for dev purposes to better display the calculation.
- * @return {Integer} Win is added to other wins from other paylines.
- * Each of these win values is multiplied by bet value in App.js to get the total win value. It's separated like this for console logging and matching this chart:
+ * @param {Integer} bet - Users current bet value - also used for logging purposes (both payline_index and bet would be removed from function in production app).
+ * @return {Integer} Win, which is added to other wins from other paylines.
+ * Each of these win values are multiplied by bet value in App.js to get the total win value.
+ * It's not returned multiplied right away as win * bet, but rather only as win,
+ * because the win value is used in App.js to find appropriate winning sound (sound is not based on total winning amount, but on total win devided by betted value).
  * https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/syms.png?alt=media&token=98ccaf8b-16bf-4723-9b1d-688be78c239e
  */
 const count = (matrix, payline_index, bet) => {
 	let win = 0;
+	// If all 5 symbols are the same on the payline
 	if (allEqual(matrix)) {
 		if (lows.indexOf(matrix[0]) > -1) {
 			win = 5;
@@ -154,6 +157,7 @@ const count = (matrix, payline_index, bet) => {
 		} else if (highs.indexOf(matrix[0]) > -1) {
 			win = 50 + (3 - highs.indexOf(matrix[0])) * 10;
 		}
+		// If there are 4 same symbols starting from the first reel
 	} else if (allEqual([matrix[0], matrix[1], matrix[2], matrix[3]])) {
 		if (lows.indexOf(matrix[0]) > -1) {
 			win = 3;
@@ -162,6 +166,7 @@ const count = (matrix, payline_index, bet) => {
 		} else if (highs.indexOf(matrix[0]) > -1) {
 			win = 20 + (3 - highs.indexOf(matrix[0])) * 4;
 		}
+		// If there are 3 same symbols starting from the first reel
 	} else if (allEqual([matrix[0], matrix[1], matrix[2]])) {
 		if (lows.indexOf(matrix[0]) > -1) {
 			win = 1;
