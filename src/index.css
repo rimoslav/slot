@@ -241,6 +241,21 @@
   opacity: 0;
 }
 
+.game-over {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 54px;
+  transform: translateX(-50%);
+  background: url("./game-over.jpg") no-repeat;
+  width: 459px;
+  height: 306px;
+  background-size: 459px;
+}
+
+.visible {
+  display: block;
+}
 @media screen and (max-width: 1000px) {
   .machine {
     transform: scale(0.45, 0.45) translateY(-46%);
@@ -256,6 +271,12 @@
   .button-spin {
     width: 128px;
     height: 130px;
+  }
+  .game-over {
+    top: 43px;
+    width: 397px;
+    height: 257px;
+    background-size: 397px;
   }
 }
 
@@ -287,6 +308,12 @@
     top: 18px;
     left: 8px;
   }
+  .game-over {
+    top: 37px;
+    width: 353px;
+    height: 235px;
+    background-size: 353px;
+  }
 }
 
 @media screen and (max-width: 380px) {
@@ -305,6 +332,13 @@
 
   .max-bet {
     width: 130px;
+  }
+
+  .game-over {
+    top: 29px;
+    width: 309px;
+    height: 206px;
+    background-size: 309px;
   }
 }
 

@@ -9,6 +9,7 @@ const sounds = {
   small_win: "https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/low.mp4?alt=media&token=2aea05b3-8519-4bb2-b32a-28545c043e73",
   medium_win: "https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/medium.mp4?alt=media&token=92630f41-a0b0-45aa-8542-69e77fba0f53",
   high_win: "https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/high.mp4?alt=media&token=6b27b877-d201-46d8-891d-252f0b35d869",
+  game_over: "https://firebasestorage.googleapis.com/v0/b/slot-machine-4f0bf.appspot.com/o/game-over-sound.mp3?alt=media&token=da16e4ec-d53a-4e71-ad9f-9065988e9994",
 };
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
       small_win: new Audio(sounds.small_win),
       medium_win: new Audio(sounds.medium_win),
       high_win: new Audio(sounds.high_win),
+      game_over: new Audio(sounds.game_over),
     };
   }
 
@@ -142,7 +144,7 @@ class App extends Component {
   };
 
   getResult = (spinners) => {
-    const { bet, cash, small_win, medium_win, high_win } = this.state;
+    const { bet, cash, small_win, medium_win, high_win, game_over } = this.state;
     window.setTimeout(() => {
       const positions = [];
       // Generate reel positions % 2160 - background image height - which generates numbers: 0, 180, 360, 540, ..., 1980
@@ -185,6 +187,8 @@ class App extends Component {
         // If there's no cash left, the game is over
         if (cash === 0) {
           this.setState({ disabled: true, bet: 0 });
+          document.getElementsByClassName("game-over")[0].classList.add("visible");
+          game_over.play();
         }
       });
     }, 2500);
@@ -222,9 +226,10 @@ class App extends Component {
         </div>
         <div className="row buttons-row">
           <button className="button max-bet" onClick={this.setMaxBet} disabled={disabled}></button>
-          <img src={win_image} className="win-info" />
+          <img src={win_image} className="win-info" alt="WIN!" />
           <button className="button button-spin" onClick={this.spin} disabled={disabled}></button>
         </div>
+        <div className="game-over"></div>
       </div>
     );
   }
