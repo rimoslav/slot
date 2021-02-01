@@ -1,379 +1,388 @@
 .main {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 .machine {
-	display: flex;
-	flex-direction: row;
-	width: fit-content;
-	transform: scale(0.52, 0.52) translateY(-30%);
-	overflow: hidden;
-	transition: 0.3s transform;
-	background: tan;
-	border: 3px solid #333;
-	border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  transform: scale(0.52, 0.52) translateY(-30%);
+  overflow: hidden;
+  transition: 0.3s transform;
+  background: tan;
+  border: 3px solid #333;
+  border-radius: 30px;
 }
 .spinner {
-	background: #fff url("./slot.png") repeat-y;
-	width: 128px;
-	height: 540px;
-	overflow: hidden;
-	will-change: backgroundPosition;
-	transition: 2.06s background-position ease-in-out;
-	margin: 0px 2px;
-	padding: 0 17px;
-	border-radius: 30px;
-	border: 5px solid black;
-	background-position-x: 17px;
-	background-position-y: 0px;
+  background: #fff url("./slot.png") repeat-y;
+  width: 128px;
+  height: 540px;
+  overflow: hidden;
+  will-change: backgroundPosition;
+  transition: 2.06s background-position ease-in-out;
+  margin: 0px 2px;
+  padding: 0 17px;
+  border-radius: 30px;
+  border: 5px solid black;
+  background-position-x: 17px;
+  background-position-y: 0px;
 }
 .spinner:first-child {
-	margin-left: 0px;
-	transition: 2s background-position ease-in-out;
+  margin-left: 0px;
+  transition: 2s background-position ease-in-out;
 }
 .spinner:nth-child(2) {
-	transition: 2.02s background-position ease-in-out;
+  transition: 2.02s background-position ease-in-out;
 }
 .spinner:nth-child(3) {
-	transition: 2.04s background-position ease-in-out;
+  transition: 2.04s background-position ease-in-out;
 }
 
 .spinner:last-child {
-	margin-right: 0px;
-	transition: 2.08s background-position ease-in-out;
+  margin-right: 0px;
+  transition: 2.08s background-position ease-in-out;
 }
 
 .cash {
-	font-size: 20px;
-	font-family: sans-serif;
-	border: 3px solid;
-	width: 126px;
-	padding: 18px 5px;
-	justify-content: center;
-	display: flex;
-	border-radius: 5px;
+  font-size: 20px;
+  font-family: sans-serif;
+  border: 3px solid;
+  width: 126px;
+  padding: 18px 5px;
+  justify-content: center;
+  display: flex;
+  border-radius: 5px;
+}
+
+.win-wrapper {
+  transform: translate(9px, 10px);
 }
 
 .win-amount {
-	width: 74px;
+  width: 74px;
 }
 
 .cash-label {
-	position: relative;
-	top: 10px;
-	left: 38px;
-	padding: 0px 7px;
-	font-size: 14px;
-	background-color: white;
+  position: relative;
+  top: 10px;
+  left: 38px;
+  padding: 0px 7px;
+  font-size: 14px;
+  background-color: white;
 }
 
 .bet-label {
-	top: -31px;
-	left: 72px;
+  top: -31px;
+  left: 72px;
 }
 
 .win-label {
-	left: 25px;
+  left: 25px;
 }
 
 .button {
-	background-color: #333;
-	color: #fff;
-	box-shadow: 0 2px 2px 0 rgb(51, 51, 51, 0.14), 0 3px 1px -2px rgb(51, 51, 51, 0.2), 0 1px 5px 0 rgb(51, 51, 51, 0.12);
-	border: none;
-	border-radius: 3px;
-	position: relative;
-	padding: 12px 30px;
-	margin: 0.3125rem 1px;
-	font-size: 12px;
-	font-weight: 400;
-	text-transform: uppercase;
-	letter-spacing: 0;
-	will-change: box-shadow, transform;
-	transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	touch-action: manipulation;
-	cursor: pointer;
-	outline: none;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 2px 2px 0 rgb(51, 51, 51, 0.14), 0 3px 1px -2px rgb(51, 51, 51, 0.2), 0 1px 5px 0 rgb(51, 51, 51, 0.12);
+  border: none;
+  border-radius: 3px;
+  position: relative;
+  padding: 12px 30px;
+  margin: 0.3125rem 1px;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  will-change: box-shadow, transform;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  outline: none;
 }
 
 .button:hover,
 .button:focus,
 .button:active {
-	box-shadow: 0 14px 26px -12px rgb(51, 51, 51, 0.42), 0 4px 23px 0px rgb(0, 0, 0, 0.12), 0 8px 10px -5px rgb(51, 51, 51, 0.2);
+  box-shadow: 0 14px 26px -12px rgb(51, 51, 51, 0.42), 0 4px 23px 0px rgb(0, 0, 0, 0.12), 0 8px 10px -5px rgb(51, 51, 51, 0.2);
 }
 
 .button.bet {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 20px;
-	padding: 0 2px;
-	width: 22px;
-	height: 27px;
-	outline: none;
-	margin-left: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 0 2px;
+  width: 22px;
+  height: 27px;
+  outline: none;
+  margin-left: 2px;
 }
 
 .button .energy {
-	width: 28px;
-	height: 30px;
-	transform: translate(-2px, 5px);
+  width: 28px;
+  height: 30px;
+  transform: translate(-2px, 5px);
 }
 
 .max-bet {
-	font-size: 15px;
-	padding: 2px 8px;
-	width: 118px;
-	background: #333;
-	height: 32px;
-	color: #fff;
-	box-shadow: 0 2px 2px 0 rgb(51, 51, 51, 0.14), 0 3px 1px -2px rgb(51, 51, 51, 0.2), 0 1px 5px 0 rgb(51, 51, 51, 0.12);
-	background: url("./img/max.png") no-repeat;
-	width: 128px;
-	height: 64px;
-	border-radius: 12px;
+  font-size: 15px;
+  padding: 2px 8px;
+  width: 118px;
+  background: #333;
+  height: 32px;
+  color: #fff;
+  box-shadow: 0 2px 2px 0 rgb(51, 51, 51, 0.14), 0 3px 1px -2px rgb(51, 51, 51, 0.2), 0 1px 5px 0 rgb(51, 51, 51, 0.12);
+  background: url("./img/max.png") no-repeat;
+  width: 128px;
+  height: 64px;
+  border-radius: 12px;
 }
 
 .button-spin {
-	padding: 5px 30px;
-	background: #64991e;
-	color: #fff;
-	box-shadow: 0 2px 2px 0 rgb(93, 187, 99, 0.14), 0 3px 1px -2px rgb(93, 187, 99, 0.2), 0 1px 5px 0 rgb(93, 187, 99, 0.12);
-	font-size: 22px;
-	transform: scale(1, 0.5);
-	position: relative;
-	top: -33px;
-	width: 128px;
-	height: 128px;
-	background: url("./img/spin.png") no-repeat;
+  padding: 5px 30px;
+  background: #64991e;
+  color: #fff;
+  box-shadow: 0 2px 2px 0 rgb(93, 187, 99, 0.14), 0 3px 1px -2px rgb(93, 187, 99, 0.2), 0 1px 5px 0 rgb(93, 187, 99, 0.12);
+  font-size: 22px;
+  transform: scale(1, 0.5);
+  position: relative;
+  top: -33px;
+  width: 128px;
+  height: 128px;
+  background: url("./img/spin.png") no-repeat;
 }
 
 .button.bet.plus {
-	background: url("./img/plus.png") no-repeat;
-	width: 128px;
-	height: 64px;
-	transform: scale(0.4, 0.45);
-	border-radius: 15px;
-	position: relative;
-	top: 18px;
-	left: 17px;
+  background: url("./img/plus.png") no-repeat;
+  width: 128px;
+  height: 64px;
+  transform: scale(0.4, 0.45);
+  border-radius: 15px;
+  position: relative;
+  top: 18px;
+  left: 17px;
 }
 
 .button.bet.minus {
-	background: url("./img/minus.png") no-repeat;
-	width: 128px;
-	height: 64px;
-	transform: scale(0.4, 0.45);
-	border-radius: 15px;
-	position: relative;
-	top: -19px;
-	left: 17px;
+  background: url("./img/minus.png") no-repeat;
+  width: 128px;
+  height: 64px;
+  transform: scale(0.4, 0.45);
+  border-radius: 15px;
+  position: relative;
+  top: -19px;
+  left: 17px;
 }
 
 .row {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .column {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	top: -30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -30px;
 }
 
 .handlers {
-	position: absolute;
-	top: 348px;
-	transform: translateX(-20px) scale(0.9);
-	width: 548px;
-	align-items: flex-start;
-	transition: 0.3s transform;
-	display: flex;
-	justify-content: space-between;
-	transition: 0.3s transform;
+  position: absolute;
+  top: 348px;
+  transform: translateX(-20px) scale(0.9);
+  width: 548px;
+  align-items: flex-start;
+  transition: 0.3s transform;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s transform;
 }
 
 .bet-value {
-	width: 84px;
+  width: 84px;
 }
 
 .quantity {
-	width: 31px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  width: 31px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .buttons-row {
-	position: absolute;
-	top: 431px;
-	display: flex;
-	flex-direction: row;
-	width: 460px;
-	align-items: flex-start;
-	justify-content: space-between;
+  position: absolute;
+  top: 431px;
+  display: flex;
+  flex-direction: row;
+  width: 460px;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .win-amount,
 .cash-amount {
-	padding: 12px 5px;
+  padding: 12px 5px;
 }
 
 .win-info {
-	width: 173px;
-	position: relative;
-	top: 0px;
-	opacity: 0;
+  width: 173px;
+  position: relative;
+  top: 0px;
+  opacity: 0;
 }
 
 @media screen and (max-width: 1000px) {
-	.machine {
-		transform: scale(0.45, 0.45) translateY(-46%);
-	}
-	.handlers {
-		top: 293px;
-		width: 482px;
-	}
-	.buttons-row {
-		width: 400px;
-		top: 380px;
-	}
-	.button-spin {
-		width: 244px;
-		height: 52px;
-		padding: 7px 30px;
-	}
+  .machine {
+    transform: scale(0.45, 0.45) translateY(-46%);
+  }
+  .handlers {
+    top: 293px;
+    width: 482px;
+  }
+  .buttons-row {
+    width: 433px;
+    top: 380px;
+  }
+  .button-spin {
+    width: 128px;
+    height: 130px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-	.machine {
-		transform: scale(0.4, 0.4) translateY(-59%);
-	}
-	.handlers {
-		top: 266px;
-		width: 431px;
-	}
-	.buttons-row {
-		top: 352px;
-		width: 356px;
-	}
-	.button-spin {
-		width: 227px;
-		height: 57px;
-		padding: 5px 30px;
-	}
+  .machine {
+    transform: scale(0.4, 0.4) translateY(-59%);
+  }
+  .handlers {
+    top: 266px;
+    width: 431px;
+  }
+  .buttons-row {
+    top: 352px;
+    width: unset;
+    transform: scale(0.85);
+  }
 
-	.max-bet {
-		width: 115px;
-	}
+  .max-bet {
+    width: 128px;
+  }
+
+  .button.bet.minus {
+    transform: scale(0.3, 0.4);
+    top: -17px;
+    left: 8px;
+  }
+  .button.bet.plus {
+    transform: scale(0.3, 0.4);
+    top: 18px;
+    left: 8px;
+  }
 }
 
 @media screen and (max-width: 380px) {
-	.machine {
-		transform: scale(0.35, 0.35) translateY(-80%);
-	}
-	.handlers {
-		top: 231px;
-		width: 423px;
-		transform: translateX(-18px) scale(0.81, 0.81);
-	}
-	.buttons-row {
-		transform: scale(0.8);
-		width: 392px;
-		top: 307px;
-	}
+  .machine {
+    transform: scale(0.35, 0.35) translateY(-80%);
+  }
+  .handlers {
+    top: 231px;
+    width: 423px;
+    transform: translateX(-18px) scale(0.81, 0.81);
+  }
+  .buttons-row {
+    transform: scale(0.73);
+    top: 307px;
+  }
 
-	.max-bet {
-		width: 130px;
-	}
+  .max-bet {
+    width: 130px;
+  }
 }
 
 /* Firefox old*/
 @-moz-keyframes blink {
-	0% {
-		opacity: 0;
-	}
-	25% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0;
-	}
-	75% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-webkit-keyframes blink {
-	0% {
-		opacity: 0;
-	}
-	25% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0;
-	}
-	75% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 /* IE */
 @-ms-keyframes blink {
-	0% {
-		opacity: 0;
-	}
-	25% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0;
-	}
-	75% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 /* Opera and prob css3 final iteration */
 @keyframes blink {
-	0% {
-		opacity: 0;
-	}
-	25% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0;
-	}
-	75% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .win-info-blinker {
-	-moz-animation: blink normal 1.5s infinite ease-in-out; /* Firefox */
-	-webkit-animation: blink normal 1.5s infinite ease-in-out; /* Webkit */
-	-ms-animation: blink normal 1.5s infinite ease-in-out; /* IE */
-	animation: blink normal 1.5s infinite ease-in-out; /* Opera and prob css3 final iteration */
+  -moz-animation: blink normal 1.5s infinite ease-in-out; /* Firefox */
+  -webkit-animation: blink normal 1.5s infinite ease-in-out; /* Webkit */
+  -ms-animation: blink normal 1.5s infinite ease-in-out; /* IE */
+  animation: blink normal 1.5s infinite ease-in-out; /* Opera and prob css3 final iteration */
 }
