@@ -161,9 +161,9 @@ class App extends Component {
           happy.classList.remove("win-info-blinker");
         }, 2250);
       }
-      if (win > 45) {
+      if (win > 30) {
         high_win.play();
-      } else if (win > 30) {
+      } else if (win > 15) {
         medium_win.play();
       } else if (win > 0) {
         small_win.play();
