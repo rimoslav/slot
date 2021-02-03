@@ -89,8 +89,11 @@ class App extends Component {
 	};
 
 	setMaxBet = () => {
-		if (this.state.bet < 1000) {
+		const { bet, cash, coin } = this.state;
+		if (bet < 1000 && cash >= 1000) {
 			this.setState({ bet: 1000 }, () => this.state.coin.play());
+		} else if (bet < cash && cash < 1000) {
+			this.setState({ bet: cash }, () => coin.play());
 		}
 	};
 
