@@ -16,7 +16,7 @@
 	border-radius: 30px;
 }
 .spinner {
-	background: #fff url("./slot.png") repeat-y;
+	background: #fff url("./img/slot.png") repeat-y;
 	width: 128px;
 	height: 540px;
 	overflow: hidden;
@@ -247,7 +247,7 @@
 	left: 50%;
 	top: 54px;
 	transform: translateX(-50%);
-	background: url("./game-over.jpg") no-repeat;
+	background: url("./img/game-over.jpg") no-repeat;
 	width: 459px;
 	height: 306px;
 	background-size: 459px;

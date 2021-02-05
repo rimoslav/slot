@@ -1,4 +1,8 @@
 import { Component } from "react";
+import Spinner from "./components/Spinner";
+import Credits from "./components/Credits/Credits";
+import Buttons from "./components/Buttons";
+import GameOver from "./components/GameOver";
 import { makeMatrix, checkForWin } from "./helpers";
 import win_image from "./img/win.png";
 
@@ -200,39 +204,10 @@ class App extends Component {
 		const { disabled, bet, cash, win } = this.state;
 		return (
 			<div className="main">
-				<div className="machine">
-					<div className="spinner" style={{ backgroundPosition: "17px 0px" }}></div>
-					<div className="spinner" style={{ backgroundPosition: "17px 0px" }}></div>
-					<div className="spinner" style={{ backgroundPosition: "17px 0px" }}></div>
-					<div className="spinner" style={{ backgroundPosition: "17px 0px" }}></div>
-					<div className="spinner" style={{ backgroundPosition: "17px 0px" }}></div>
-				</div>
-				<div className="row handlers">
-					<div className="column">
-						<div className="row betting">
-							<label className="cash-label bet-label">BET</label>
-							<label className="cash bet-value">{bet}</label>
-							<div className="quantity">
-								<button className="button bet plus" onClick={this.increaseBet} disabled={disabled}></button>
-								<button className="button bet minus" onClick={this.decreaseBet} disabled={disabled}></button>
-							</div>
-						</div>
-					</div>
-					<div className="win-wrapper">
-						<label className="cash-label win-label">WIN</label>
-						<label className="cash win-amount">{win}</label>
-					</div>
-					<div>
-						<label className="cash-label">CREDIT</label>
-						<label className="cash cash-amount">{cash}</label>
-					</div>
-				</div>
-				<div className="row buttons-row">
-					<button className="button max-bet" onClick={this.setMaxBet} disabled={disabled}></button>
-					<img src={win_image} className="win-info" alt="WIN!" />
-					<button className="button button-spin" onClick={this.spin} disabled={disabled}></button>
-				</div>
-				<div className="game-over"></div>
+				<Spinner />
+				<Credits increaseBet={this.increaseBet} decreaseBet={this.decreaseBet} bet={bet} cash={cash} win={win} disabled={disabled} />
+				<Buttons setMaxBet={this.setMaxBet} spin={this.spin} win_image={win_image} disabled={disabled} />
+				<GameOver />
 			</div>
 		);
 	}
